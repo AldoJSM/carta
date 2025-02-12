@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Icono de un corazon en el encabezado-->
+    <link rel="icon" href="flower.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <title>I❤Y</title>
+</head>
+<body>
+    <div class="heart" style="left: 10%; animation-duration: 4s;"></div>
+    <div class="heart" style="left: 30%; animation-duration: 6s;"></div>
+    <div class="heart" style="left: 50%; animation-duration: 5s;"></div>
+    <div class="heart" style="left: 70%; animation-duration: 7s;"></div>
+    <div class="heart" style="left: 90%; animation-duration: 3s;"></div>
+    <div class="carta">
+        <h1>¡Holiwis UwU ❤!</h1>
+        <p>Espero que te encuentres muy bien, y que estés disfrutando de este día tan especial.
+        Quiero que sepas que eres una persona muy especial para mí, y que me siento muy afortunado de tenerte en mi vida.
+        Gracias por ser tan maravillosa, por ser tan comprensiva, por ser tan cariñosa, por ser tan tierna, por ser tan hermosa, por ser tan inteligente, por ser tan talentosa, por ser tan única, por ser tan tú.
+        Te quiero mucho y ojala pudiera hacer mas por ti, aunque de momento solo puedo hacer esto TnT.
+        Aun asi queria darte un pequeño detalle, no es la gran cosa pero espero te guste.</p>
+        <button class="boton" onclick="showSwal()">TQM</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function showSwal() {
+        Swal.fire({
+            imageUrl: "./bugcat-capoo.gif",
+            imageHeight: 500,
+            imageAlt: "A tall image"
+        });
+    }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+    let texto = "Hola, este texto se escribe poco a poco...";
+    let velocidad = 100; // Milisegundos por letra
+    let i = 0;
+    let parrafo = document.querySelector(".escribir");
+
+    function escribirTexto() {
+        if (i < texto.length) {
+            parrafo.innerHTML += texto.charAt(i);
+            i++;
+            setTimeout(escribirTexto, velocidad);
+        } else {
+            parrafo.style.borderRight = "none"; // Quita el cursor al terminar
+        }
+    }
+
+    escribirTexto();
+});
+
+</script>
+</html>

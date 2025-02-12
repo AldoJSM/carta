@@ -1,0 +1,77 @@
+body {
+    background-color: #fad0d5; /* Color de fondo */
+    overflow: hidden; /* Evita el desbordamiento */
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: fall 5s linear infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(-45deg);
+    }
+}
+
+.carta {
+    width: 80%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid #d1a07c;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    justify-content: center;
+    position: relative;
+    margin: 50px auto;
+}
+
+.boton{
+    background-color: #d1a07c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.escribir {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    border-right: 2px solid black;
+    padding-right: 5px;
+}
+
+
