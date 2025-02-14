@@ -9,6 +9,10 @@
     <title>I❤Y</title>
 </head>
 <body>
+    <audio id="miAudio" autoplay loop>
+        <source src="blue.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
     <div class="heart" style="left: 10%; animation-duration: 4s;"></div>
     <div class="heart" style="left: 30%; animation-duration: 6s;"></div>
     <div class="heart" style="left: 50%; animation-duration: 5s;"></div>
@@ -22,6 +26,13 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+  window.addEventListener("DOMContentLoaded", function () {
+    let audio = document.getElementById("miAudio");
+
+    audio.currentTime = 18; // Cambia el 10 por el segundo exacto donde quieres que inicie
+    audio.play(); // Inicia la reproducción
+  });
+    
     function showSwal() {
         Swal.fire({
             imageUrl: "./bugcat-capoo.gif",
