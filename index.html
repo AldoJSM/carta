@@ -9,8 +9,8 @@
     <title>I❤Y</title>
 </head>
 <body>
-    <audio id="miAudio" autoplay loop>
-        <source src="blue.mp3" type="audio/mpeg">
+    <audio id="miAudio">
+        <source src="./blue.mp3" type="audio/mpeg">
         Tu navegador no soporta el elemento de audio.
     </audio>
     <div class="heart" style="left: 10%; animation-duration: 4s;"></div>
@@ -20,18 +20,13 @@
     <div class="heart" style="left: 90%; animation-duration: 3s;"></div>
     <div class="carta">
         <h1>¡Holiwis UwU ❤!</h1>
-        <p class='escribir'></p>
+        <button id="abrirCarta" class="boton">Abrir Carta</button> <!-- Nuevo botón -->
+        <p class='escribir' style="display: none;"></p> <!-- Texto oculto al inicio -->
         <button class="boton" onclick="showSwal()">TQM</button>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-  window.addEventListener("DOMContentLoaded", function () {
-    let audio = document.getElementById("miAudio");
-
-    audio.currentTime = 18; // Cambia el 10 por el segundo exacto donde quieres que inicie
-    audio.play(); // Inicia la reproducción
-  });
     
     function showSwal() {
         Swal.fire({
@@ -41,24 +36,37 @@
         });
     }
     
-    document.addEventListener("DOMContentLoaded", function () {
-    let texto = "Espero que te encuentres muy bien, y que estés disfrutando de este día tan especial. Quiero que sepas que eres una persona muy especial para mí, y que me siento muy afortunado de tenerte en mi vida. Gracias por ser tan maravillosa, por ser tan comprensiva, por ser tan cariñosa, por ser tan tierna, por ser tan hermosa, por ser tan inteligente, por ser tan talentosa, por ser tan única, por ser tan tú. Te quiero mucho y ojala pudiera hacer mas por ti, aunque de momento solo puedo hacer esto TnT. Aun asi queria darte un pequeño detalle, no es la gran cosa pero espero te guste.";
-    let velocidad = 50; // Milisegundos por letra
-    let i = 0;
-    let parrafo = document.querySelector(".escribir");
+   
+    document.getElementById("abrirCarta").addEventListener("click", function () {
+        let audio = document.getElementById("miAudio");
+        let parrafo = document.querySelector(".escribir");
+        let boton = document.getElementById("abrirCarta");
 
-    function escribirTexto() {
-        if (i < texto.length) {
-            parrafo.innerHTML += texto.charAt(i);
-            i++;
-            setTimeout(escribirTexto, velocidad);
-        } else {
-            parrafo.style.borderRight = "none"; // Quita el cursor al terminar
+        // Oculta el botón
+        boton.style.display = "none";
+
+        // Muestra el párrafo
+        parrafo.style.display = "block";
+
+        // Inicia la música desde el segundo 18
+        audio.currentTime = 18;
+        audio.play();
+
+        // Texto que se escribirá
+        let texto = "Espero que te encuentres muy bien, y que estés disfrutando de este día tan especial. Quiero que sepas que eres una persona muy especial para mí, y que me siento muy afortunado de tenerte en mi vida. Gracias por ser tan maravillosa, por ser tan comprensiva, por ser tan cariñosa, por ser tan tierna, por ser tan hermosa, por ser tan inteligente, por ser tan talentosa, por ser tan única, por ser tan tú. Te quiero mucho y ojala pudiera hacer mas por ti, aunque de momento solo puedo hacer esto TnT. Aun asi queria darte un pequeño detalle, no es la gran cosa pero espero te guste.";
+
+        let velocidad = 50; // Milisegundos por letra
+        let i = 0;
+
+        function escribirTexto() {
+            if (i < texto.length) {
+                parrafo.innerHTML += texto.charAt(i);
+                i++;
+                setTimeout(escribirTexto, velocidad);
+            }
         }
-    }
 
-    escribirTexto();
-});
-
+        escribirTexto();
+    });
 </script>
 </html>
